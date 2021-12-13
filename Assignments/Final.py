@@ -140,26 +140,11 @@ def company_compare(df, selections):
     # goes thru chosen selections
     for line in selections:
         # makes copy of dataframe
-            # This is because as we are looping
-            # through for each inputted value, the dataframe
-            # is being filtered to one row.  Without a copy,
-            # we wouldn't be able to find any of the other ranks
         diction = df.copy()
 
         # finds data of company and gets first row
-            # filters the dataframe to only the current queried rank.
-            # the result is a dataframe with a single row.
         diction = df.loc[diction['RANK'] == line]
-
-            # This works because the dataframe only has 1 row.  We pull
-            # the first row (0th position) of the dataframe out and into
-            # a series called info.  This is because we will convert the
-            # values into a dictionary and if I skipped this step then
-            # to_dict() would output a dictionary of dictionaries rather
-            # than just a dictionary.  I then store the dictionary to the
-            # list called list_dicts.
         info = diction.iloc[0]
-        # st.write(info)
         # converts series to dict and adds dict to list_dicts
         info = info.to_dict()
         list_dicts.append(info)
