@@ -1,0 +1,6 @@
+streamlit
+csv
+pandas
+matplotlib
+pydeck
+numpy
